@@ -1,11 +1,13 @@
 var Candidates = {};
 Candidates.Models = {
-    singleCandidate: Backbone.Model.extend({})
+    SingleCandidate: Backbone.Model.extend({
+        idAttribute: "id"
+    })
 };
 
 Candidates.Collection = {
     candidates: Backbone.Collection.extend({
-        model: Menu.Models.singleCandidate,
+        model: Candidates.Models.SingleCandidate,
 
         url: "/api/candidates/all"
     })
