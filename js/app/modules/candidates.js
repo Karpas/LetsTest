@@ -1,11 +1,13 @@
 var Candidates = {};
 Candidates.Models = {
-    Link: Backbone.Model.extend({})
+    singleCandidate: Backbone.Model.extend({})
 };
 
 Candidates.Collection = {
-    Links: Backbone.Collection.extend({
-        model: Menu.Models.Link
+    candidates: Backbone.Collection.extend({
+        model: Menu.Models.singleCandidate,
+
+        url: "/api/candidates/all"
     })
 };
 
@@ -20,6 +22,14 @@ Candidates.Views = {
         },
         render: function () {
             var view = this;
+
+            var candidates = new Candidates.Collection.candidates();
+
+            candidates.fetch().done(function () {
+                    console.log("done");
+                }).fail(function () {
+                    console.log("fail")
+                })
 
             var singleRecordTmpl = "/templates/candidates/candidates.html";
             window.utils.fetchTemplate(singleRecordTmpl, function (tmpl) {
