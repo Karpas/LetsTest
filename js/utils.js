@@ -1,21 +1,18 @@
 window.utils = {
 
-    // Asynchronously load templates located in separate .html files
-    loadTemplate: function(views, callback) {
+    fetchTemplate: function (path, done) {
+        window.JST = window.JST || {};
 
-        var deferreds = [];
+        if (window.JST[path]) {
+            return done(window.JST[path]);
+        }
 
-        $.each(views, function(index, view) {
-            if (window[view]) {
-                deferreds.push($.get('templates/' + view + '.html', function(data) {
-                    window[view].prototype.template = _.template(data);
-                }));
-            } else {
-                alert(view + " not found");
-            }
+        return $.get(path, function (contents) {
+            var tmpl = _.template(contents);
+            window.JST[path] = tmpl;
+
+            done(tmpl);
         });
-
-        $.when.apply(null, deferreds).done(callback);
     },
 
     capitalize: function(string)

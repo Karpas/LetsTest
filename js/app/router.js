@@ -26,6 +26,7 @@ AppRouter = Backbone.Router.extend({
     },
 
     candidates: function () {
+        var candidates = new Candidates.Views.MainView();
     	alert("dashboard");
     }
 });
