@@ -51,8 +51,13 @@ AppRouter = Backbone.Router.extend({
         });
     },
 
-    dashboard: function() {
+    dashboard: function () {
         alert("dashboard");
+    },
+
+    candidates: function () {
+        var candidates = new Candidates.Views.MainView();
+    	alert("dashboard");
     },
     tests: function() {
         alert("tests");
