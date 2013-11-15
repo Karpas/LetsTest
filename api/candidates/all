@@ -4,10 +4,8 @@
         "name": "Jan",
         "surname": "Kowalski",
         "avgScore": 0.33,
-        "email": "jak@test.com",
         "active": true,
 		"technologies": ["HTML", "Java"],
-        "comments": "Done some tests",
         "tests": [
             {
                 "id": 14,
@@ -26,10 +24,8 @@
         "name": "Ala",
         "surname": "Dolar",
         "avgScore": 0.23,
-        "email": "aleksy@test.ezg",
         "active": false,
 		"technologies": ["PHP", "C#"],
-        "comments": "Failed some tests",
         "tests": [
             {
                 "id": 14,
