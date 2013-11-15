@@ -1,0 +1,47 @@
+﻿[
+    {
+        "id": 13,
+        "name": "Jan",
+        "surname": "Kowalski",
+        "avgScore": 0.33,
+        "active": true,
+		"technologies": ["HTML", "Java"],
+        "tests": [
+            {
+                "id": 14,
+                "name": "test 1",
+                "score": 0.63
+            },
+            {
+                "id": 17,
+                "name": "test 12",
+                "score": 0.53
+            }
+        ]
+    },
+	{
+        "id": 3,
+        "name": "Ala",
+        "surname": "Dolar",
+        "avgScore": 0.23,
+        "active": false,
+		"technologies": ["PHP", "C#"],
+        "tests": [
+            {
+                "id": 14,
+                "name": "test 1",
+                "score": 0.23
+            },
+            {
+                "id": 17,
+                "name": "test 12",
+                "score": 0.33
+            },
+            {
+                "id": 37,
+                "name": "test 82",
+                "score": 0.62
+            }
+        ]
+    }
+]
