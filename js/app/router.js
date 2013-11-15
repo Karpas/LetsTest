@@ -1,26 +1,30 @@
 AppRouter = Backbone.Router.extend({
-	routes: {
-        ""				: "login",
+    routes: {
+        "": "login",
         "dashboard": "dashboard",
-
+        "candidates": "candidates"
     },
 
     initialize: function () {
         Backbone.history.start({ pushState: true });
-      $(document).on('click', 'a:not([data-bypass])', function (evt) {
+        $(document).on('click', 'a:not([data-bypass])', function (evt) {
 
-        var href = $(this).attr('href');
-        var protocol = this.protocol + '//';
+            var href = $(this).attr('href');
+            var protocol = this.protocol + '//';
 
-        if (href.slice(protocol.length) !== protocol) {
-          evt.preventDefault();
-          app.router.navigate(href, true);
-        }
-      });
+            if (href.slice(protocol.length) !== protocol) {
+                evt.preventDefault();
+                app.router.navigate(href, true);
+            }
+        });
         var template = new Template();
     },
 
-    dashboard: function() {
-    	alert("dashboard");
+    dashboard: function () {
+        alert("dashboard");
+    },
+
+    candidates: function () {
+        alert("dashboard");
     }
 });
