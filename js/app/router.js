@@ -37,6 +37,7 @@ AppRouter = Backbone.Router.extend({
 
     initialize: function () {
         app.menu = new Menu.Views.Sidebar();
+        app.header = new Nav.Views.Top();
         var template = new Template();
         Backbone.history.start({ pushState: true });
         $(document).on('click', 'a:not([data-bypass])', function (evt) {
@@ -52,24 +53,24 @@ AppRouter = Backbone.Router.extend({
     },
 
     dashboard: function () {
-        alert("dashboard");
+        app.pageTitle = "Dashboard";
     },
 
     candidates: function () {
         var candidates = new Candidates.Views.MainView();
-    	alert("dashboard");
     },
-    tests: function() {
-        alert("tests");
+    tests: function () {
+        app.pageTitle = "Tests";
     },
-    candidates: function() {
-        alert("candidates");
+    candidates: function () {
+        app.pageTitle = "Candidates";
     },
-    specialists: function() {
-        alert("specialists");
+    specialists: function () {
+        app.pageTitle = "Specialists";
     },
     after: function () {
         app.menu.refresh(Backbone.history.fragment);
+        app.header.refresh();
     },
 
 });

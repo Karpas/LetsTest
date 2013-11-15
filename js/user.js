@@ -1,3 +1,5 @@
 app.currentUser = {
-	role: "hr"
+	role: "hr",
+	name: "Jan",
+	surname: "Kowalski",
 }
