@@ -1,0 +1,9 @@
+﻿{
+	"id": 13,
+	"name": "Jan",
+	"surname": "Kowalski",
+	"avgScore": 0.33,
+	"phone": "+48 502 202 223",
+	"email": "test@test.com",
+	"comments": "Done some tests",
+}

@@ -1,7 +1,8 @@
 AppRouter = Backbone.Router.extend({
 	routes: {
         ""				: "login",
-        "dashboard"		: "dashboard"
+        "dashboard": "dashboard",
+
     },
 
     initialize: function () {
