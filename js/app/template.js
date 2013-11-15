@@ -1,10 +1,6 @@
 Template = Backbone.View.extend({
     el: $('body'),
 
-    events: {
-    	"click #dash": "menuClick"
-    },
-
     initialize: function(){
         _.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
 
@@ -13,8 +9,4 @@ Template = Backbone.View.extend({
     render: function() {
         $('#page-wrapper', this.el).append("<ul> <li>hello world</li> </ul>");
     },
-
-    menuClick: function(e) {
-    	alert("test");
-    }
 });

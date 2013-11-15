@@ -1,0 +1,3 @@
+app.currentUser = {
+	role: "hr"
+}
