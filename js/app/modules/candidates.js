@@ -1,19 +1,19 @@
 var Candidates = {};
 Candidates.Models = {
-    Link : Backbone.Model.extend({})
+    Link: Backbone.Model.extend({})
 };
 
 Candidates.Collection = {
-    Links : Backbone.Collection.extend({
+    Links: Backbone.Collection.extend({
         model: Menu.Models.Link
     })
 };
 
 Candidates.Views = {
-    MainView : Backbone.View.extend({
+    MainView: Backbone.View.extend({
         el: $('#page-wrapper'),
 
-        initialize: function() {
+        initialize: function () {
             _.bindAll(this, 'render');
             console.log("Candidates view rendered");
             this.render();
@@ -28,7 +28,7 @@ Candidates.Views = {
                 $(view.el).empty()
                 $(view.el).append($newRecord);
             })
-            
+
         }
     })
 };

@@ -1,5 +1,5 @@
-Backbone.Router.prototype.before = function () {};
-Backbone.Router.prototype.after = function () {};
+Backbone.Router.prototype.before = function () { };
+Backbone.Router.prototype.after = function () { };
 
 Backbone.Router.prototype.route = function (route, name, callback) {
     if (!_.isRegExp(route)) route = this._routeToRegExp(route);
@@ -9,9 +9,9 @@ Backbone.Router.prototype.route = function (route, name, callback) {
     }
     if (!callback) callback = this[name];
 
-        var router = this;
+    var router = this;
 
-        Backbone.history.route(route, function(fragment) {
+    Backbone.history.route(route, function (fragment) {
         var args = router._extractParameters(route, fragment);
 
         router.before.apply(router, arguments);
@@ -26,12 +26,12 @@ Backbone.Router.prototype.route = function (route, name, callback) {
 };
 
 AppRouter = Backbone.Router.extend({
-	routes: {
-        ""			   : "login",
-        "dashboard"     : "dashboard",
-        "tests"         : "tests",
-        "candidates"    : "candidates",
-        "specialists"   : "specialists",
+    routes: {
+        "": "login",
+        "dashboard": "dashboard",
+        "tests": "tests",
+        "candidates": "candidates",
+        "specialists": "specialists",
 
     },
 
@@ -45,8 +45,8 @@ AppRouter = Backbone.Router.extend({
             var protocol = this.protocol + '//';
 
             if (href.slice(protocol.length) !== protocol) {
-              evt.preventDefault();
-              app.router.navigate(href, true);
+                evt.preventDefault();
+                app.router.navigate(href, true);
             }
         });
     },
@@ -57,15 +57,15 @@ AppRouter = Backbone.Router.extend({
 
     candidates: function () {
         var candidates = new Candidates.Views.MainView();
-    	alert("dashboard");
+        alert("dashboard");
     },
-    tests: function() {
+    tests: function () {
         alert("tests");
     },
-    candidates: function() {
+    candidates: function () {
         alert("candidates");
     },
-    specialists: function() {
+    specialists: function () {
         alert("specialists");
     },
     after: function () {
