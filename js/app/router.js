@@ -9,7 +9,7 @@ Backbone.Router.prototype.route = function (route, name, callback) {
     }
     if (!callback) callback = this[name];
 
-    var router = this;
+        var router = this;
 
     Backbone.history.route(route, function (fragment) {
         var args = router._extractParameters(route, fragment);
@@ -26,7 +26,7 @@ Backbone.Router.prototype.route = function (route, name, callback) {
 };
 
 AppRouter = Backbone.Router.extend({
-    routes: {
+	routes: {
         "": "login",
         "dashboard": "dashboard",
         "tests": "tests",
@@ -37,6 +37,7 @@ AppRouter = Backbone.Router.extend({
 
     initialize: function () {
         app.menu = new Menu.Views.Sidebar();
+        app.header = new Nav.Views.Top();
         var template = new Template();
         Backbone.history.start({ pushState: true });
         $(document).on('click', 'a:not([data-bypass])', function (evt) {
@@ -45,26 +46,29 @@ AppRouter = Backbone.Router.extend({
             var protocol = this.protocol + '//';
 
             if (href.slice(protocol.length) !== protocol) {
-                evt.preventDefault();
-                app.router.navigate(href, true);
+              evt.preventDefault();
+              app.router.navigate(href, true);
             }
         });
     },
 
     dashboard: function () {
-        alert("dashboard");
+        app.pageTitle = "Dashboard";
     },
+
     tests: function () {
-        alert("tests");
+        app.pageTitle = "Tests";
     },
     candidates: function () {
+        app.pageTitle = "Candidates";
         var candidates = new Candidates.Views.MainView();
     },
     specialists: function () {
-        alert("specialists");
+        app.pageTitle = "Specialists";
     },
     after: function () {
         app.menu.refresh(Backbone.history.fragment);
+        app.header.refresh();
     },
 
 });
