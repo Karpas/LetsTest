@@ -51,8 +51,12 @@ Specialists.Views = {
             specialists.fetch().done(function () {;
                 var listTmpl = "/templates/specialists/list.html";
                 window.utils.fetchTemplate(listTmpl, function (tmpl) {
+                    var list = $(tmpl({
+                        specialists: specialists.toJSON()
+                    }));
+
                     $(view.el).empty()
-                    $(view.el).html(tmpl({content: specialists.render()}));
+                    $(view.el).append(list);
                 })
             }).fail(function () {
                 console.log("fail")
