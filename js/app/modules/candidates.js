@@ -9,7 +9,7 @@ Candidates.Collection = {
     candidates: Backbone.Collection.extend({
         model: Candidates.Models.SingleCandidate,
 
-        url: "/api/candidates/all"
+        url: "/api/candidates/all.json"
     })
 };
 
@@ -28,18 +28,20 @@ Candidates.Views = {
             var candidates = new Candidates.Collection.candidates();
 
             candidates.fetch().done(function () {
-                    console.log("done");
+                    var singleRecordTmpl = "/templates/candidates/candidates.html";
+                    window.utils.fetchTemplate(singleRecordTmpl, function (tmpl) {
+                        $newRecord = $(tmpl({
+                            candidates: candidates.toJSON()
+                        }));
+
+                        $(view.el).empty()
+                        $(view.el).append($newRecord);
+                    })
                 }).fail(function () {
                     console.log("fail")
                 })
 
-            var singleRecordTmpl = "/templates/candidates/candidates.html";
-            window.utils.fetchTemplate(singleRecordTmpl, function (tmpl) {
-                $newRecord = $(tmpl({}));
-
-                $(view.el).empty()
-                $(view.el).append($newRecord);
-            })
+            
 
         }
     })

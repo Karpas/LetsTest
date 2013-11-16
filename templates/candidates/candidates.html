@@ -48,80 +48,32 @@
                     <thead>
                         <tr>
                             <th>Name <i class="fa fa-sort"></i></th>
-                            <th>Region <i class="fa fa-sort"></i></th>
                             <th>Tests</th>
                             <th>Avg result <i class="fa fa-sort"></i></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <% _.forEach(candidates, function (candidate) { %>
                         <tr>
-                            <td>Test1</td>
-                            <td>Lodz</td>
+                            <% console.log(candidate) %>
+                            <td><%- candidate.name %> <%- candidate.surname %></td>
                             <td>
                                 <ul>
-                                    <li><a href="#">Test1 - 63%</a></li>
-                                    <li><a href="#">Test2 - 13%</a></li>
-                                    <li><a href="#">Test3 - 23%</a></li>
+                                    <% _.forEach(candidate.tests, function (test) { %>
+                                    <li><a href="#"><%- test.name %> - <%- test.score * 100 %>%</a></li>
+                                    <% }) %>
                                 </ul>
                             </td>
-                            <td>33%</td>
+                            <td><%- candidate.avgScore * 100 %>%</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i>Delete</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-envelope"></i>Email</button>
-                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-comment"></i>Comment</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i>Hire</button>
+                                <button type="button" class="btn btn-sm btn-danger" data-candidateId="<%- candidate.id %>"><i class="fa fa-trash-o"></i> Delete</button>
+                                <button type="button" class="btn btn-sm btn-success" data-candidateId="<%- candidate.id %>"><i class="fa fa-envelope"></i> Contact</button>
+                                <button type="button" class="btn btn-sm btn-info" data-candidateId="<%- candidate.id %>"><i class="fa fa-comment"></i> Comment</button>
+                                <button type="button" class="btn btn-sm btn-success <%- candidate.active ? '' : 'disabled' %>" data-candidateId="<%- candidate.id %>"><i class="fa fa-plus-circle"></i> Hire</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Test3</td>
-                            <td>Lodz</td>
-                            <td>
-                                <ul>
-                                    <li><a href="#">Test1 - 63%</a></li>
-                                    <li><a href="#">Test2 - 13%</a></li>
-                                </ul>
-                            </td>
-                            <td>43%</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i>Delete</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-envelope"></i>Email</button>
-                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-comment"></i>Comment</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i>Hire</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Test5</td>
-                            <td>Gdansk</td>
-                            <td>
-                                <ul>
-                                    <li><a href="#">Test1 - 63%</a></li>
-                                </ul>
-                            </td>
-                            <td>63%</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i>Delete</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-envelope"></i>Email</button>
-                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-comment"></i>Comment</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i>Hire</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Test7</td>
-                            <td>Warsaw</td>
-                            <td>
-                                <ul>
-                                    <li><a href="#">Test3 - 23%</a></li>
-                                </ul>
-                            </td>
-                            <td>23%</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i>Delete</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-envelope"></i>Email</button>
-                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-comment"></i>Comment</button>
-                                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i>Hire</button>
-                            </td>
-                        </tr>
+                        <% }) %>
                     </tbody>
                 </table>
             </div>
