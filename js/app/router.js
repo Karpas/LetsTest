@@ -58,6 +58,7 @@ AppRouter = Backbone.Router.extend({
 
     tests: function () {
         app.pageTitle = "Tests";
+        var tests = new Tests.Views.MainView();
     },
     candidates: function () {
         app.pageTitle = "Candidates";
@@ -65,8 +66,6 @@ AppRouter = Backbone.Router.extend({
     },
     specialists: function () {
         app.pageTitle = "Specialists";
-        var index = new Specialists.Views.Index();
-        console.log(index);
     },
     after: function () {
         app.menu.refresh(Backbone.history.fragment);
