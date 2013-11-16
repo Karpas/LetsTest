@@ -32,7 +32,7 @@ AppRouter = Backbone.Router.extend({
         "tests": "tests",
         "candidates": "candidates",
         "specialists": "specialists",
-
+        "testcreator": "createTest"
     },
 
     initialize: function () {
@@ -59,6 +59,10 @@ AppRouter = Backbone.Router.extend({
     tests: function () {
         app.pageTitle = "Tests";
         var tests = new Tests.Views.MainView();
+    },
+    createTest: function () {
+        app.pageTitle = "New test";
+        var createTest = new Tests.Views.createTest()
     },
     candidates: function () {
         app.pageTitle = "Candidates";
