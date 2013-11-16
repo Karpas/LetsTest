@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Specialists <small>Manage your specialists and add new ones</small></h1>
+    <ol class="breadcrumb">
+      <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+      <li class="active"><i class="icon-file-alt"></i> Candidates</li>
+    </ol>
+    <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <h2>Specialists</h2>
+  <div class="col-lg-12">
+    <div class="col-lg-1">
+      <input type="checkbox" checked> Active<br>
+    </div>
+    <div class="col-lg-1">
+      <input type="checkbox"> Inactive<br>
+    </div>
+    <div class="col-lg-1">
+      <input type="checkbox" checked> Java<br>
+    </div>
+    <div class="col-lg-1">
+      <input type="checkbox" checked> Php<br>
+    </div>
+    <div class="col-lg-1">
+      <input type="checkbox"> C#<br>
+    </div>
+    <div class="col-lg-1">
+      <input type="checkbox"> HTML<br>
+    </div>
+  </div>
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+          <tr>
+            <th>Name <i class="fa fa-sort"></i></th>
+            <th>Position</th>
+            <th>MajorSpeciality <i class="fa fa-sort"></i></th>
+            <th>Technologies</th>
+            <th>Evaluated tests <i class="fa fa-sort"></i></th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        	<% _.forEach(specialists, function (specialist) { %>
+                <tr>
+              		<td><%= specialist.Name %> <%= specialist.Surname %></td>
+              <td><%= specialist.Position %></td>
+              <td><%= specialist.MajorSpeciality %></td>
+              <td><%= specialist.Technologies.join(" ,") %></td>
+              <td><%= specialist.EvaluatedTests %></td>
+              <td>
+                <button class="btn btn-sm btn-danger" type="button" data-id="<%= specialist.Id %>" ><i class="fa fa-trash-o"></i> Delete</button>
+                <button class="btn btn-sm btn-success" type="button" data-id="<%= specialist.Id %>"><i class="fa fa-envelope"></i> Email</button>
+                <button class="btn btn-sm btn-info" type="button" data-id="<%= specialist.Id %>"><i class="fa fa-gear"></i> Edit</button
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- /.row -->
