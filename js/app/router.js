@@ -65,6 +65,8 @@ AppRouter = Backbone.Router.extend({
     },
     specialists: function () {
         app.pageTitle = "Specialists";
+        var index = new Specialists.Views.Index();
+        console.log(index);
     },
     after: function () {
         app.menu.refresh(Backbone.history.fragment);

@@ -1,0 +1,29 @@
+[
+    {
+        "Id": 1,
+        "Name": "Jan",
+        "Surname": "Kowalski",
+        "Position" : "Developer",
+        "EvaluatedTests" : "33",
+        "Technologies": ["HTML", "Java"],
+        "MajorSpeciality" : "HTML"
+    },
+    {
+        "Id": 2,
+        "Name": "Andrzej",
+        "Surname": "Test",
+        "Position" : "Senior Developer",
+        "EvaluatedTests" : "23",
+        "Technologies": ["C#", "HTML"],
+        "MajorSpeciality" : "C#"
+    },
+    {
+        "Id": 3,
+        "Name": "Jan",
+        "Surname": "Kowalski",
+        "Position" : "Junior Developer",
+        "EvaluatedTests" : "31",
+		"Technologies": ["PHP", "Java"],
+        "MajorSpeciality" : "PHP"
+    }
+]

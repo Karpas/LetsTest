@@ -1,85 +1,81 @@
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>Candidates <small>Manage your candidates and add new ones</small></h1>
-            <ol class="breadcrumb">
-                <li><a href="index.html"><i class="icon-dashboard"></i>Dashboard</a></li>
-                <li class="active"><i class="icon-file-alt"></i>Candidates</li>
-            </ol>
-            <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>Add</button>
-        </div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Candidates <small>Manage your candidates and add new ones</small></h1>
+        <ol class="breadcrumb">
+            <li><a href="index.html"><i class="icon-dashboard"></i>Dashboard</a></li>
+            <li class="active"><i class="icon-file-alt"></i>Candidates</li>
+        </ol>
+        <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>Add</button>
     </div>
-    <!-- /.row -->
-    <div class="row">
-        <h2>Candidates</h2>
-        <div class="col-lg-12">
-            <div class="col-lg-1">
-                <input type="checkbox" checked>
-                Active<br>
-            </div>
-            <div class="col-lg-1">
-                <input type="checkbox">
-                Inactive<br>
-            </div>
-            <div class="col-lg-1">
-                <input type="checkbox" checked>
-                Java<br>
-            </div>
-            <div class="col-lg-1">
-                <input type="checkbox" checked>
-                Php<br>
-            </div>
-            <div class="col-lg-1">
-                <input type="checkbox">
-                C#<br>
-            </div>
-            <div class="col-lg-1">
-                <input type="checkbox">
-                HTML<br>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover table-striped tablesorter">
-                    <thead>
-                        <tr>
-                            <th>Name <i class="fa fa-sort"></i></th>
-                            <th>Tests</th>
-                            <th>Avg result <i class="fa fa-sort"></i></th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% _.forEach(candidates, function (candidate) { %>
-                        <tr>
-                            <% console.log(candidate) %>
-                            <td><%- candidate.name %> <%- candidate.surname %></td>
-                            <td>
-                                <ul>
-                                    <% _.forEach(candidate.tests, function (test) { %>
-                                    <li><a href="#"><%- test.name %> - <%- test.score * 100 %>%</a></li>
-                                    <% }) %>
-                                </ul>
-                            </td>
-                            <td><%- candidate.avgScore * 100 %>%</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-danger" data-candidateId="<%- candidate.id %>"><i class="fa fa-trash-o"></i> Delete</button>
-                                <button type="button" class="btn btn-sm btn-success" data-candidateId="<%- candidate.id %>"><i class="fa fa-envelope"></i> Contact</button>
-                                <button type="button" class="btn btn-sm btn-info" data-candidateId="<%- candidate.id %>"><i class="fa fa-comment"></i> Comment</button>
-                                <button type="button" class="btn btn-sm btn-success <%- candidate.active ? '' : 'disabled' %>" data-candidateId="<%- candidate.id %>"><i class="fa fa-plus-circle"></i> Hire</button>
-                            </td>
-                        </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
 </div>
-<!-- /#page-wrapper -->
+<!-- /.row -->
+<div class="row">
+    <h2>Candidates</h2>
+    <div class="col-lg-12">
+        <div class="col-lg-1">
+            <input type="checkbox" checked>
+            Active<br>
+        </div>
+        <div class="col-lg-1">
+            <input type="checkbox">
+            Inactive<br>
+        </div>
+        <div class="col-lg-1">
+            <input type="checkbox" checked>
+            Java<br>
+        </div>
+        <div class="col-lg-1">
+            <input type="checkbox" checked>
+            Php<br>
+        </div>
+        <div class="col-lg-1">
+            <input type="checkbox">
+            C#<br>
+        </div>
+        <div class="col-lg-1">
+            <input type="checkbox">
+            HTML<br>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                    <tr>
+                        <th>Name <i class="fa fa-sort"></i></th>
+                        <th>Tests</th>
+                        <th>Avg result <i class="fa fa-sort"></i></th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% _.forEach(candidates, function (candidate) { %>
+                    <tr>
+                        <% console.log(candidate) %>
+                        <td><%- candidate.name %> <%- candidate.surname %></td>
+                        <td>
+                            <ul>
+                                <% _.forEach(candidate.tests, function (test) { %>
+                                <li><a href="#"><%- test.name %> - <%- test.score * 100 %>%</a></li>
+                                <% }) %>
+                            </ul>
+                        </td>
+                        <td><%- candidate.avgScore * 100 %>%</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger" data-candidateId="<%- candidate.id %>"><i class="fa fa-trash-o"></i> Delete</button>
+                            <button type="button" class="btn btn-sm btn-success" data-candidateId="<%- candidate.id %>"><i class="fa fa-envelope"></i> Contact</button>
+                            <button type="button" class="btn btn-sm btn-info" data-candidateId="<%- candidate.id %>"><i class="fa fa-comment"></i> Comment</button>
+                            <button type="button" class="btn btn-sm btn-success <%- candidate.active ? '' : 'disabled' %>" data-candidateId="<%- candidate.id %>"><i class="fa fa-plus-circle"></i> Hire</button>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
