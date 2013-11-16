@@ -1,5 +1,5 @@
-Backbone.Router.prototype.before = function () {};
-Backbone.Router.prototype.after = function () {};
+Backbone.Router.prototype.before = function () { };
+Backbone.Router.prototype.after = function () { };
 
 Backbone.Router.prototype.route = function (route, name, callback) {
     if (!_.isRegExp(route)) route = this._routeToRegExp(route);
@@ -11,7 +11,7 @@ Backbone.Router.prototype.route = function (route, name, callback) {
 
         var router = this;
 
-        Backbone.history.route(route, function(fragment) {
+    Backbone.history.route(route, function (fragment) {
         var args = router._extractParameters(route, fragment);
 
         router.before.apply(router, arguments);
@@ -27,11 +27,11 @@ Backbone.Router.prototype.route = function (route, name, callback) {
 
 AppRouter = Backbone.Router.extend({
 	routes: {
-        ""			   : "login",
-        "dashboard"     : "dashboard",
-        "tests"         : "tests",
-        "candidates"    : "candidates",
-        "specialists"   : "specialists",
+        "": "login",
+        "dashboard": "dashboard",
+        "tests": "tests",
+        "candidates": "candidates",
+        "specialists": "specialists",
 
     },
 
@@ -56,14 +56,12 @@ AppRouter = Backbone.Router.extend({
         app.pageTitle = "Dashboard";
     },
 
-    candidates: function () {
-        var candidates = new Candidates.Views.MainView();
-    },
     tests: function () {
         app.pageTitle = "Tests";
     },
     candidates: function () {
         app.pageTitle = "Candidates";
+        var candidates = new Candidates.Views.MainView();
     },
     specialists: function () {
         app.pageTitle = "Specialists";
